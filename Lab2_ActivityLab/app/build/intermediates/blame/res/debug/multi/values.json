@@ -1,0 +1,201 @@
+[
+    {
+        "outputFile": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab2_ActivityLab\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 48,
+                    "endOffset": 99
+                },
+                "from": {
+                    "file": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab2_ActivityLab\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 56,
+                        "endColumn": 48,
+                        "endOffset": 100
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 104,
+                    "endColumn": 53,
+                    "endOffset": 153
+                },
+                "from": {
+                    "file": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab2_ActivityLab\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 329,
+                        "endColumn": 53,
+                        "endOffset": 378
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 158,
+                    "endColumn": 48,
+                    "endOffset": 202
+                },
+                "from": {
+                    "file": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab2_ActivityLab\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 452,
+                        "endColumn": 48,
+                        "endOffset": 496
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 207,
+                    "endColumn": 55,
+                    "endOffset": 258
+                },
+                "from": {
+                    "file": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab2_ActivityLab\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 105,
+                        "endColumn": 55,
+                        "endOffset": 156
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 263,
+                    "endColumn": 57,
+                    "endOffset": 316
+                },
+                "from": {
+                    "file": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab2_ActivityLab\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 271,
+                        "endColumn": 57,
+                        "endOffset": 324
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 321,
+                    "endColumn": 55,
+                    "endOffset": 372
+                },
+                "from": {
+                    "file": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab2_ActivityLab\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 215,
+                        "endColumn": 55,
+                        "endOffset": 266
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 377,
+                    "endColumn": 53,
+                    "endOffset": 426
+                },
+                "from": {
+                    "file": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab2_ActivityLab\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 161,
+                        "endColumn": 53,
+                        "endOffset": 210
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 431,
+                    "endColumn": 68,
+                    "endOffset": 495
+                },
+                "from": {
+                    "file": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab2_ActivityLab\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 383,
+                        "endColumn": 68,
+                        "endOffset": 447
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 500,
+                    "endLine": 16,
+                    "endColumn": 12,
+                    "endOffset": 786
+                },
+                "from": {
+                    "file": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab2_ActivityLab\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 186,
+                        "endLine": 12,
+                        "endColumn": 12,
+                        "endOffset": 472
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 791,
+                    "endLine": 19,
+                    "endColumn": 12,
+                    "endOffset": 946
+                },
+                "from": {
+                    "file": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab2_ActivityLab\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 510,
+                        "endLine": 17,
+                        "endColumn": 12,
+                        "endOffset": 665
+                    }
+                }
+            }
+        ]
+    }
+]
