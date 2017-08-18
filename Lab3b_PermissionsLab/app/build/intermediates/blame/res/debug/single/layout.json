@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3b_PermissionsLab\\app\\build\\intermediates\\res\\merged\\debug\\layout\\bookmarks_activity.xml",
+        "source": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3b_PermissionsLab\\app\\src\\main\\res\\layout\\bookmarks_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3b_PermissionsLab\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_loader_activity.xml",
+        "source": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3b_PermissionsLab\\app\\src\\main\\res\\layout\\activity_loader_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3b_PermissionsLab\\app\\build\\intermediates\\res\\merged\\debug\\layout\\go_to_dangerous_activity.xml",
+        "source": "C:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3b_PermissionsLab\\app\\src\\main\\res\\layout\\go_to_dangerous_activity.xml"
+    }
+]

@@ -1,0 +1,33 @@
+#Internal package file, do not edit.
+#Fri Aug 18 13:42:52 BST 2017
+2.base=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_
+5.file=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\feed.xml
+5.set=ANDROID_RESOURCE
+3.base=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_
+6.file=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_\\resources.arsc
+2.set=ANDROID_RESOURCE
+4.base=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_
+7.file=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+7.set=DEX
+count=10
+0.file=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\main_activity.xml
+5.base=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_
+8.file=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\raw\\ladygaga.txt
+4.set=ANDROID_RESOURCE
+6.base=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_
+1.file=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-large-v4\\main_activity.xml
+9.set=ANDROID_RESOURCE
+9.file=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\raw\\rebeccablack.txt
+1.set=ANDROID_RESOURCE
+7.base=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+2.file=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_\\AndroidManifest.xml
+6.set=ANDROID_RESOURCE
+0.base=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_
+8.base=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_
+3.file=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\raw\\taylorswift.txt
+3.set=ANDROID_RESOURCE
+1.base=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_
+9.base=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_
+4.file=C\:\\Users\\domin\\Documents\\GitHub\\android-basic-samples\\Lab3c_FragmentsLab\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\ic_launcher.png
+8.set=ANDROID_RESOURCE
+0.set=ANDROID_RESOURCE
