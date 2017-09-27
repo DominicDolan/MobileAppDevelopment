@@ -112,30 +112,34 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Global is a class containing various public static variables to be accessed project wide
         Global.sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         Global.resources = getResources();
         Global.activity = this;
 
+        //Units is a class containing statics also which allows for useful conversions
+        //eg. if you wanted an icon to be 2cm in width you would write 2*Units.cm to get the pixel value
         Units.init(getWindowManager());
 
         setUpViews();
 
+        //Start the api calls and the google maps fragment. These occur in Async tasks and the main part of the
+        // app starts when these tasks either complete or fail.
         requestDublinBikesAPI();
         startMapFragment();
 
+        setUpDatabases();
+
+        //The info fragment is a fragment which can be swiped up and down by the user. Its function
+        //is to allow the user to look at or rerieve information when needed and to move it out of the
+        //way when it's not needed.
         infoFragment = (InfoFragment) getFragmentManager().findFragmentByTag(INFO_FRAGMENT_TAG);
 
+        //Adding the GlobalLayoutListener to the current view is helpful for getting information from
+        //the views after they have rendered
         final View rootView = getWindow().getDecorView().getRootView();
         rootView.getViewTreeObserver().addOnGlobalLayoutListener(this);
 
-        dbHelper = new SQLDatabaseHelper(this);
-        Global.firebaseHelper = new FirebaseDataHelper();
-        if (!Global.firebaseHelper.isLoggedIn()){
-            sendToLoginOnFirstStart();
-            emailView.setText(Global.sharedPref.getString("display_name", getString(R.string.not_logged_in)));
-        } else {
-            emailView.setText(Global.firebaseHelper.getName());
-        }
 
         if (infoFragment == null) {
             infoFragment = new InfoFragment();
@@ -143,6 +147,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             transaction.add(R.id.main_layout, infoFragment, INFO_FRAGMENT_TAG);
             transaction.commit();
         } else {
+            //Sometimes the infofragment can persist across instances of OnCreate, in those cases we
+            //do not need to re-instantiate the fragment
             infoFragment.setContainer((ViewGroup) findViewById(android.R.id.content));
         }
     }
@@ -153,9 +159,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private void setUpViews(){
         setContentView(R.layout.activity_main);
+
+        //There is a setting for the user to hide the floating action button in the top left corner
         boolean showFab = Global.sharedPref.getBoolean("show_menu", true);
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);
@@ -163,30 +170,55 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             fab.hide();
         }
 
-
+        //set up the navigation drawer layout and the list of items that can be clicked on
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         emailView = (TextView) findViewById(R.id.email_address);
 
         String[] listActions = {"Favourites", "Journeys", "Settings"};
         ListView drawerList = (ListView) findViewById(R.id.drawer_list);
 
-        // Set the adapter for the list view
+        // Set the adapter for the drawer's list view
         drawerList.setAdapter(new ArrayAdapter<>(this,
                 R.layout.drawer_list_item, listActions));
         // Set the list's click listener
         drawerList.setOnItemClickListener(this);
     }
 
+    private void setUpDatabases(){
+        //SQLDatabaseHelper is a class which extends SQLiteOpenHelper for managing the SQLite Database
+        //The function of the SQLite database is to have persistent information for when the user goes
+        //offline
+        dbHelper = new SQLDatabaseHelper(this);
+
+        //Firebase helper is for interacting with the firebase database so that information about the
+        //user is persistent across devices
+        Global.firebaseHelper = new FirebaseDataHelper();
+        if (!Global.firebaseHelper.isLoggedIn()){
+            sendToLoginOnFirstStart();
+            emailView.setText(Global.sharedPref.getString("display_name", getString(R.string.not_logged_in)));
+        } else {
+            emailView.setText(Global.firebaseHelper.getName());
+        }
+    }
+
     private void sendToLoginOnFirstStart(){
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean firstStart = sharedPref.getBoolean("firstStart", true);
+        //The user will only be sent to the login screen on the first start, at the login screen they will
+        //either login, sign up, or skip the login process. If they skip it they won't be asked to login everytime
+        //the app starts. If in the future they decide to login it can be accessed from the settings page
+        boolean firstStart = Global.sharedPref.getBoolean("firstStart", true);
         if (firstStart){
-            SharedPreferences.Editor editor = sharedPref.edit();
+            SharedPreferences.Editor editor = Global.sharedPref.edit();
             editor.putBoolean("firstStart", false).apply();
             startActivity(new Intent(this, LoginActivity.class));
         }
     }
 
     private void init(){
+        //This method gets called after both the maps fragment and the dublin bikes api are ready to go
+        //LoadStationData is a class for doing an async task. It will parse the JSON data from dublin bikes
+        //and create the ~100 objects representing the dublin bikes stations. The most demanding part of this
+        //procedure is creating the marker icons which get placed on the map. It's demanding because it is
+        //rendering text on top of a png image for each of the bike stations.
         LoadStationData dbTask = new LoadStationData(map, this, infoFragment);
         dbTask.execute();
 
@@ -198,6 +230,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
+    //Setting the map camera to dublin at an appropriate zoom level
     public void setCamera(){
         LatLng dublin = new LatLng(53.349722, -6.260278);
         float defaultZoom = 14f;
@@ -211,6 +244,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         map.moveCamera(CameraUpdateFactory.zoomTo(16));
     }
 
+    //This method is called from the OnMarkerClicked class which is defined below
     public boolean markerClicked(BikeStand bikeStand){
 
         infoFragment.clearStations();
@@ -218,6 +252,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         return false;
     }
 
+    //Start when ready will be called twice by both the google maps set up and the dublin bikes api
+    //call, However it will only start the app when the slower of those two processes completes
     public void startWhenReady(){
         if (isFinishedLoadingMap && isFinishedLoadingJson){
             enableLocation();
@@ -226,6 +262,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
+    //Calling the api for dublin bikes makes used of a library called Volley. This call automatically
+    //takes place as an Async task.
     private void requestDublinBikesAPI(){
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -236,6 +274,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         queue.add(request);
     }
 
+    //This method defines what happens when the api call returns
     private StringRequest getStringRequest(String url){
         // Request a string response from the provided URL.
         return new StringRequest(Request.Method.GET, url,
@@ -254,6 +293,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
     }
 
+    //This method only parses the JSON into a JSONObject, it does not parse the JSON into BikeStand
+    //Objects, that happens later in an Async task.
     private void parseJson(String response){
         response = "{array:" + response + "}";
         JSONObject obj;
@@ -266,6 +307,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
+    //This method enables the ability to get access to the users location
     private void enableLocation(){
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
 
@@ -369,6 +411,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
+    //This method mostly manages what happens when the screen is rotated or the keyboard changes
+    //this method gets called if OnConfigurationChanged gets called but this method will be called
+    //after the views have rendered which makes it easier to manage widths and heights and so forth
     @Override
     public void onGlobalLayout() {
 
@@ -415,9 +460,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    //Item click event for the list view in the naavigation drawer
+    //Item click event for the list view in the navigation drawer
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //Looking at favourites and journeys can only be done for logged in users, so the user is asked
+        //if they want to log in if they haven't already.
         switch (position){
             case 0:
                 if (Global.firebaseHelper.isLoggedIn()) {
@@ -442,6 +489,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         @Override
         public boolean onMarkerClick(Marker marker) {
+            //Since Global.bikeStands is a Hash Map this method should be quick to return a value
             BikeStand stand = Global.bikeStands.get(marker.getId());
             return markerClicked(stand);
         }
@@ -450,11 +498,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+        //OnConfigurationChange just sets some booleans which are managed by OnGlobalLayoutChanged
         configurationChanged = true;
         isLandscape = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
 
+    //The context menu comes up when the user long clicks on a station in the info fragment
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
