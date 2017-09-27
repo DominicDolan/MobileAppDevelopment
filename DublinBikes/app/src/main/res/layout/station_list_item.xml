@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/station_title"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/station_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="viewEnd"
+        android:layout_below="@+id/station_title"
+        android:layout_toStartOf="@+id/menuView"/>
+
+    <TextView
+        android:id="@+id/station_bikes"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/station_title"
+        android:text="TextView"/>
+
+    <TextView
+        android:id="@+id/station_spaces"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/station_bikes"
+        android:text="TextView"/>
+
+    <ImageView
+        android:id="@+id/menuView"
+        android:layout_width="@android:dimen/app_icon_size"
+        android:layout_height="32dp"
+        android:layout_alignBottom="@+id/station_spaces"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/station_status"
+        android:tint="@android:color/darker_gray"
+        app:srcCompat="@drawable/ic_more_vert_black_24px"
+        android:contentDescription="item menu"/>
+</RelativeLayout>

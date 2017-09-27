@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/favorite"
+          android:title="@string/add_favorite" />
+    <item android:id="@+id/take"
+          android:title="@string/take_bike" />
+    <item android:id="@+id/put"
+          android:title="@string/put_bike" />
+</menu>

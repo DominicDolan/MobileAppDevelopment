@@ -1,0 +1,26 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:key="pref_login"
+        android:title="Login"/>
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="show_menu"
+        android:summary="@string/pref_description_show_menu"
+        android:title="@string/pref_title_show_menu"/>
+
+    <!-- NOTE: EditTextPreference accepts EditText attributes. -->
+    <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue=" "
+        android:inputType="textCapWords"
+        android:key="display_name"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_display_name"/>
+
+
+</PreferenceScreen>

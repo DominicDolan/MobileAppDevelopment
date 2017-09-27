@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "142063933383",
+    "firebase_url": "https://dublin-bikes-7dec1.firebaseio.com",
+    "project_id": "dublin-bikes-7dec1",
+    "storage_bucket": "dublin-bikes-7dec1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142063933383:android:65c84d7c8910db33",
+        "android_client_info": {
+          "package_name": "com.dolan.dominic.dublinbikes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142063933383-k9cg2fvclpcjmig27rvgucip4aqicqkc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAovq4z0gvLNxjDM0axt1fnMrPk1K6dbG0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
