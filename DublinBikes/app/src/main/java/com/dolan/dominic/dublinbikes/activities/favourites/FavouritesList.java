@@ -35,14 +35,13 @@ import java.util.List;
  */
 
 public class FavouritesList extends ListFragment implements AdapterView.OnItemClickListener {
-
+    //List adapter fo the favourites list. It uses the same item view as the adapter in the info panel
     private FavouritesListAdapter adapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        ListView listView = new ListView(getContext());
-        return listView;
+        return new ListView(getContext());
     }
 
     @Override
@@ -83,11 +82,11 @@ public class FavouritesList extends ListFragment implements AdapterView.OnItemCl
 
     }
 
-    class FavouritesListAdapter extends BaseAdapter{
+    private class FavouritesListAdapter extends BaseAdapter{
 
         List<BikeStand> bikeStands;
 
-        public FavouritesListAdapter(List<BikeStand> bikeStands) {
+        FavouritesListAdapter(List<BikeStand> bikeStands) {
             this.bikeStands = bikeStands;
         }
 
@@ -96,7 +95,7 @@ public class FavouritesList extends ListFragment implements AdapterView.OnItemCl
             notifyDataSetChanged();
         }
 
-        public void remove(int position){
+        void remove(int position){
             bikeStands.remove(position);
             notifyDataSetChanged();
         }

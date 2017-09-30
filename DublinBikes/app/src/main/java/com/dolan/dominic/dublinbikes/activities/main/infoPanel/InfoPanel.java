@@ -46,14 +46,14 @@ import static com.dolan.dominic.dublinbikes.Units.height;
 public class InfoPanel extends RelativeLayout implements View.OnTouchListener, View.OnClickListener,
         SearchView.OnQueryTextListener, RadioGroup.OnCheckedChangeListener, OnSearchResultsReturnedListener, OnMarkersReadyListener {
 
+    //InfoPanel is the view which is contained within the info fragment
+
     private int touchSlop;
     private int minFlingVelocity;
     private int maxFlingVelocity;
 
     private GestureDetectorCompat detector;
 
-    private TextView stationInfo;
-    private SearchView searchView;
     private int containerHeight;
     private InfoListAdapter adapter;
 
@@ -80,15 +80,15 @@ public class InfoPanel extends RelativeLayout implements View.OnTouchListener, V
 
     }
 
+    //This onStart is not an override, it is a method that needs to be called when there is a
+    //configuration change
     public void onStart(InfoListAdapter adapter, ViewGroup container, MainActivity activity){
         this.activity = activity;
         this.adapter = adapter;
 
-        searchView = (SearchView) findViewById(R.id.searchView);
+        SearchView searchView = (SearchView) findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(this);
         searchView.setOnSearchClickListener(this);
-
-        stationInfo = (TextView) findViewById(R.id.stationInfo);
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(this);
@@ -100,6 +100,7 @@ public class InfoPanel extends RelativeLayout implements View.OnTouchListener, V
         ImageView favorites = (ImageView) findViewById(R.id.favorite);
         favorites.setOnClickListener(this);
 
+        // the variable dp is defined in the Units class and it has the same effect as dp in XML
         headerHeight = (int) ((48 + 36)*dp);
         limitTop = headerHeight;
 
@@ -111,6 +112,7 @@ public class InfoPanel extends RelativeLayout implements View.OnTouchListener, V
     }
 
 
+    //Since this class is instantiated from XML it is good practice to implement all the constructors
     public InfoPanel(Context context) {
         super(context);
         init();
@@ -189,6 +191,8 @@ public class InfoPanel extends RelativeLayout implements View.OnTouchListener, V
         moveView( container.getHeight() - headerHeight);
     }
 
+    //onInterceptTouchEvent is for ensuring that the user can scroll the current view up and down
+    //while also being able to interact properly with the controls within this view.
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         final int action = MotionEventCompat.getActionMasked(ev);
@@ -197,7 +201,7 @@ public class InfoPanel extends RelativeLayout implements View.OnTouchListener, V
             // Release the scroll.
             return false; // Do not intercept touch event, let the child handle it
         }
-
+        //Only return true when the SimpleGestureListener returns true
         return detector.onTouchEvent(ev);
     }
 
@@ -232,17 +236,17 @@ public class InfoPanel extends RelativeLayout implements View.OnTouchListener, V
     }
 
     @Override
-    public boolean onQueryTextSubmit(String query) {
+    public boolean onQueryTextSubmit(String searchString) {
         if (stationSearch != null){
-            stationSearch.getLocation(query, this);
+            stationSearch.getLocation(searchString, this);
         }
         return false;
     }
 
     @Override
-    public boolean onQueryTextChange(String newText) {
-        if (newText.length() > 3 && stationSearch != null){
-            stationSearch.getLocation(newText, this);
+    public boolean onQueryTextChange(String searchString) {
+        if (searchString.length() > 3 && stationSearch != null){
+            stationSearch.getLocation(searchString, this);
         }
         return false;
     }
@@ -279,16 +283,12 @@ public class InfoPanel extends RelativeLayout implements View.OnTouchListener, V
         this.stationSearch = stationSearch;
     }
 
-    public void setActivity(MainActivity activity) {
-        this.activity = activity;
-    }
-
     @Override
     public void onResultsReturned(Activity activity) {
         this.stationSearch = new StationSearch(activity, Places.getGeoDataClient(getContext(), null), Global.bikeStands);
     }
 
-
+    //SimpleOnGestureListener is an easy way to make use of the most common gestures in Android
     private class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
 
         @Override
@@ -307,6 +307,7 @@ public class InfoPanel extends RelativeLayout implements View.OnTouchListener, V
         @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2,
                                float velocityX, float velocityY) {
+            //fling the whole view up or down based on the fling animation
             if (velocityY > minFlingVelocity && velocityY < maxFlingVelocity){
                 animateViewDown();
             } else if (-velocityY > minFlingVelocity && -velocityY < maxFlingVelocity){

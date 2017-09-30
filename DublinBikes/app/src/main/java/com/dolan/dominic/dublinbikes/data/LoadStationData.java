@@ -19,6 +19,8 @@ import java.util.ArrayList;
  * Created by domin on 7 Sep 2017.
  */
 
+//Load station data is an Async Task for loading all the BikeStand objects and putting the
+//information into a SQLite database
 public class LoadStationData extends AsyncTask<Void, Void, ArrayList<BikeStand>> {
     private final OnMarkersReadyListener markersReadyListener;
     private MainActivity context;

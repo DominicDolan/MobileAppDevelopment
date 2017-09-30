@@ -115,7 +115,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         //Global is a class containing various public static variables to be accessed project wide
         Global.sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         Global.resources = getResources();
-        Global.activity = this;
 
         //Units is a class containing statics also which allows for useful conversions
         //eg. if you wanted an icon to be 2cm in width you would write 2*Units.cm to get the pixel value

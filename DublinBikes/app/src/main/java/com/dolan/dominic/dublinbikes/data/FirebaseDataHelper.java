@@ -39,6 +39,7 @@ public class FirebaseDataHelper  implements ValueEventListener {
     private Journey currentJourney;
 
     public FirebaseDataHelper() {
+
         this.bikeStands = Global.bikeStands;
         user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {

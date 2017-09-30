@@ -28,6 +28,8 @@ import java.util.Map;
  */
 
 public class StationSearch {
+    //This is the class for searching through the stations and matching them to a text screen
+    //This is described in quite a bit of detail in the report.
     private final Activity activity;
     private AutocompleteFilter placeFilter;
     private GeoDataClient geoDataClient;
@@ -124,6 +126,7 @@ public class StationSearch {
         ArrayList<BikeStand> closeStations = new ArrayList<>();
         getNameMatchedStations(text, closeStations);
 
+        //Cross reference the two close stations list
         for (StationSort stationLat : closeStationsLat) {
             String idLat = stationLat.markerID;
             for (StationSort stationLng : closeStationsLng) {
@@ -136,6 +139,7 @@ public class StationSearch {
         return closeStations;
     }
 
+    //Method for getting the closest stations in terms of either latitude or longitude
     private void searchSortedList(double value, ArrayList<StationSort> stationList, ArrayList<StationSort> closeStations){
         int index = search(value, stationList);
         closeStations.add(stationList.get(index));
@@ -156,6 +160,7 @@ public class StationSearch {
 
     }
 
+    //A modified form of the Arrays.binarSearch() algorithm
     private int search(double value, ArrayList<StationSort> list) {
 
         if(value < list.get(0).location) {

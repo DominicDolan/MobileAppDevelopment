@@ -11,7 +11,7 @@ import com.dolan.dominic.dublinbikes.R;
  */
 
 public class JourneysActivity  extends AppCompatActivity {
-
+    //This activity works in a very similar way to favourites activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

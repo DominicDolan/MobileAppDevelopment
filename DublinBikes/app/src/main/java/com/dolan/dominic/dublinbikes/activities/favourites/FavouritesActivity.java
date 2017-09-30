@@ -11,7 +11,7 @@ import android.view.View;
 import com.dolan.dominic.dublinbikes.R;
 
 public class FavouritesActivity extends AppCompatActivity {
-
+    //Activity for the list of favoourites
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +20,6 @@ public class FavouritesActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-//        getFragmentManager().findFragmentById(R.id.favourites_list);
     }
 
 }
