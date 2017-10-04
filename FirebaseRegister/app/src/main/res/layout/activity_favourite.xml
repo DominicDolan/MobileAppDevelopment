@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="com.dolan.dominic.firebaseregister.FavouriteActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hero_question"
+        android:paddingTop="15dp"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/heroEditTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/villain_question"
+        android:paddingTop="15dp"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/villainEditTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"/>
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_gravity="end"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"/>
+
+    <TextView
+        android:id="@+id/favouriteHeroTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/favourite_hero"
+        android:paddingTop="20dp"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/favouriteVillainTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/favourite_villain"
+        android:paddingTop="20dp"
+        android:textSize="20sp"/>
+
+</LinearLayout>

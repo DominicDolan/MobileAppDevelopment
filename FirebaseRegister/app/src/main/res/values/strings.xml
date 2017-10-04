@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DBS Star Wars Fan Club</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="log_in">Log In</string>
+
+    <string name="hero_question">Who is your favourite hero?</string>
+    <string name="villain_question">Who is your favourite villain?</string>
+
+    <string name="favourite_hero">Favourite Hero: </string>
+    <string name="favourite_villain">Favourite Villain: </string>
+
+    <string name="submit">Submit</string>
+    <string name="preferences">DBS_FAN_CLUB</string>
+</resources>

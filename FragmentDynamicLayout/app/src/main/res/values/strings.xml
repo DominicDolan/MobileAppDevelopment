@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Families of Westeros Houses</string>
+    <string-array name="Houses">
+        <item>House Arryn</item>
+        <item>House Frey</item>
+        <item>House Greyjoy</item>
+        <item>House Lannister</item>
+        <item>House Stark</item>
+        <item>House Targaryan</item>
+    </string-array>
+    <string-array name="Description">
+        <item>
+            Rulers of the Vale of Arryn from the castle of the Eyrie.
+            Integrated with the Kingdom of the North
+        </item>
+        <item>
+            Former vassals to House Tully, rulers of the Riverlands from
+            the castle of Riverrun after usurping their positions after the Red Wedding</item>
+        <item>
+            Rulers of the Iron Islands from the castle of Pyke. Divided, with members
+            supporting either the Lannister or Stark/Targaryen cause.
+        </item>
+        <item>
+            The current royal house of the Seven Kingdoms from the Red Keep
+            of King\'s Landing in the Crownlands and rulers of the Westerlands
+            from the castle of Casterly Rock.
+        </item>
+        <item>
+            Rulers of the North from the castle of Winterfell
+            Recently retook their lands from House Bolton, and currently
+            preparing for the war against the Night King.
+        </item>
+        <item>
+            Claimant royal house of the Seven Kingdoms, former royal
+            house and rulers of the Crownlands from the castle of the Red Keep.
+            Currently based at Dragonstone and preparing for war against the Night King.
+        </item>
+    </string-array>
+</resources>
